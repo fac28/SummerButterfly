@@ -10,14 +10,15 @@ const posts = [];
 
 server.get("/", (req, res) => {
   const list = posts.map((posts) => {
-    return `<li>
-    <div style="border-style:solid; border-width:0.5px">
-      <span>${posts.name}</span>
-      <p>${posts.post}</p> 
-      <button>Edit</button>
-      <button>Delete</button>
-    </div>
-    </li>`;
+    return `<div><li>
+    <p>
+    ${posts.post} 
+    </p>
+    </li>
+    <button>Edit</button>
+    <button>Delete</button>
+    <span>${posts.name}</span>
+    </div>`;
   });
   const html = `
     <!doctype html>
@@ -49,7 +50,7 @@ server.get("/", (req, res) => {
           </section>  
 
           <section id="section-posts">
-            <ul style="list-style-type:none">
+            <ul>
               ${list.join("")}
             </ul>
           </section>  
