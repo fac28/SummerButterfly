@@ -8,18 +8,26 @@ server.use(staticHandler);
 function sanitize(string) {
   return string.replace(/</g, "&lt;");
 }
+
+let postIdCounter = 1;
 const posts = [];
 
 server.get("/", (req, res) => {
-  const list = posts.map((posts) => {
+  const list = posts.map((post) => {
     return `<div><li>
     <p>
-    ${posts.post} 
+    ${post.post} 
     </p>
     </li>
-    <button>Edit</button>
-    <button>Delete</button>
-    <span>${posts.name}</span>
+    <form action="/edit" method="post" class="edit-form">
+      <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
+      <button type="submit" class="edit-button">Edit</button>
+    </form>
+    <form action="/delete" method="post" class="delete-form">
+      <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
+      <button type="submit" class="delete-button">Delete</button>
+    </form>
+    <span>${post.name}</span>
     </div>`;
   });
 
@@ -53,6 +61,11 @@ server.get("/", (req, res) => {
             </p>
             <button>Post</button>
             </form>
+
+            <form  method="POST"  action="/del">
+              <button>Delete Last</button>
+            </form>
+
           </section>  
 
           <section id="section-posts">
@@ -71,31 +84,47 @@ server.get("/", (req, res) => {
   res.send(html);
 });
 
+server.post("/", express.urlencoded({ extended: false }), (req, res) => {
+  const name = sanitize(req.body.name);
+  const post = sanitize(req.body.post);
+  posts.push({ name, post });
+  res.redirect("/");
+});
+
+
+// The following code is being worked on for Validation:
 // server.post("/", express.urlencoded({ extended: false }), (req, res) => {
-//   const name = sanitize(req.body.name);
-//   const post = sanitize(req.body.post);
-//   posts.push({ name, post });
-//   res.redirect("/");
+//   const nickname = req.body.nickname;
+//   const message = req.body.message;
+//   const errors = {};
+//   if (!nickname) {
+//     errors.nickname = "Please enter your nickname";
+//   }
+//   if (!message) {
+//     errors.message = "Please enter a message";
+//   }
+//   if (Object.keys(errors).length) {
+//     const body = home(posts, errors, req.body);
+//     res.status(400).send(body);
+//   } else {
+//     const created = Date.now();
+//     posts.push({ nickname, message, created });
+//     res.redirect("/");
+//   }
 // });
 
-server.post("/", express.urlencoded({ extended: false }), (req, res) => {
-  const nickname = req.body.nickname;
-  const message = req.body.message;
-  const errors = {};
-  if (!nickname) {
-    errors.nickname = "Please enter your nickname";
+server.post("/del", express.urlencoded({ extended: false }), (req, res) => {
+  posts.pop();
+  res.redirect("/");
+});
+
+server.post("/delete", express.urlencoded({ extended: false }), (req, res) => {
+  const postIndex = parseInt(req.body.postIndex, 10); // Parse the index as an integer
+  if (!isNaN(postIndex) && postIndex >= 0 && postIndex < posts.length) {
+    // Check if the index is valid
+    posts.splice(postIndex, 1); // Remove the post at the specified index
   }
-  if (!message) {
-    errors.message = "Please enter a message";
-  }
-  if (Object.keys(errors).length) {
-    const body = home(posts, errors, req.body);
-    res.status(400).send(body);
-  } else {
-    const created = Date.now();
-    posts.push({ nickname, message, created });
-    res.redirect("/");
-  }
+  res.redirect("/");
 });
 
 module.exports = server;
