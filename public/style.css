@@ -1,0 +1,30 @@
+body {
+  height: 100vh;
+  margin: 0 auto;
+  background-image: url(summer-background.png);
+}
+h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+  color: rgb(239, 160, 13);
+}
+header {
+  text-align: center;
+}
+label {
+  display: block;
+}
+form,
+#section-posts {
+  margin: 1em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  margin-bottom: 1em;
+  border: solid 0.2px;
+  background-color: antiquewhite;
+}
