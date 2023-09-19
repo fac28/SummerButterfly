@@ -63,31 +63,31 @@ server.get("/", (req, res) => {
   res.send(html);
 });
 
+server.post("/", express.urlencoded({ extended: false }), (req, res) => {
+  const name = sanitize(req.body.name);
+  const post = sanitize(req.body.post);
+  posts.push({ name, post });
+  res.redirect("/");
+});
+
+// The following code is being worked on for Validaltion:
 // server.post("/", express.urlencoded({ extended: false }), (req, res) => {
 //   const name = sanitize(req.body.name);
 //   const post = sanitize(req.body.post);
-//   posts.push({ name, post });
-//   res.redirect("/");
+//   const errors = {};
+//   if (!name) {
+//     errors.name = "Please enter your username";
+//   }
+//   if (!post) {
+//     errors.post = "Please enter a post";
+//   }
+//   if (Object.keys(errors).length) {
+//     const body = home(posts, errors, req.body);
+//     res.status(400).send(body);
+//   } else {
+//     posts.push({ name, post });
+//     res.redirect("/");
+//   }
 // });
-
-server.post("/", express.urlencoded({ extended: false }), (req, res) => {
-  const nickname = req.body.nickname;
-  const message = req.body.message;
-  const errors = {};
-  if (!nickname) {
-    errors.nickname = "Please enter your nickname";
-  }
-  if (!message) {
-    errors.message = "Please enter a message";
-  }
-  if (Object.keys(errors).length) {
-    const body = home(posts, errors, req.body);
-    res.status(400).send(body);
-  } else {
-    const created = Date.now();
-    posts.push({ nickname, message, created });
-    res.redirect("/");
-  }
-});
 
 module.exports = server;
