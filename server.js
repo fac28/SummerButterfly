@@ -5,7 +5,9 @@ const server = express();
 const staticHandler = express.static("public");
 
 server.use(staticHandler);
-
+function sanitize(string) {
+  return string.replace(/</g, "&lt;");
+}
 const posts = [];
 
 server.get("/", (req, res) => {
@@ -20,6 +22,7 @@ server.get("/", (req, res) => {
     <span>${posts.name}</span>
     </div>`;
   });
+
   const html = `
     <!doctype html>
       <head>
@@ -67,12 +70,32 @@ server.get("/", (req, res) => {
     `;
   res.send(html);
 });
-//hi
+
+// server.post("/", express.urlencoded({ extended: false }), (req, res) => {
+//   const name = sanitize(req.body.name);
+//   const post = sanitize(req.body.post);
+//   posts.push({ name, post });
+//   res.redirect("/");
+// });
+
 server.post("/", express.urlencoded({ extended: false }), (req, res) => {
-  const name = req.body.name;
-  const post = req.body.post;
-  posts.push({ name, post });
-  res.redirect("/");
+  const nickname = req.body.nickname;
+  const message = req.body.message;
+  const errors = {};
+  if (!nickname) {
+    errors.nickname = "Please enter your nickname";
+  }
+  if (!message) {
+    errors.message = "Please enter a message";
+  }
+  if (Object.keys(errors).length) {
+    const body = home(posts, errors, req.body);
+    res.status(400).send(body);
+  } else {
+    const created = Date.now();
+    posts.push({ nickname, message, created });
+    res.redirect("/");
+  }
 });
 
 module.exports = server;
