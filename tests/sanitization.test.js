@@ -8,7 +8,7 @@ test("POST with script tag is correctly sanitized", async () => {
     body: "name=oli&post=<script>alert('uh oh')</script>",
     headers: { "content-type": "application/x-www-form-urlencoded" },
   });
-  
+  assert.equal(status, 200);
   assert.match(
     body,
     /&lt;script>alert\('uh oh'\)&lt;\/script>/i,
