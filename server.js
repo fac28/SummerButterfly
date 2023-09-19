@@ -9,6 +9,7 @@ server.get("/", (req, res) => {
   const list = posts.map((posts) => {
     return `<li>${posts.name} | ${posts.post} </li>`;
   });
+ 
   const html = `
     <form method="POST">
       <p>
@@ -29,8 +30,9 @@ server.get("/", (req, res) => {
 });
 
 server.post("/", express.urlencoded({ extended: false }), (req, res) => {
-  const name = req.body.name;
-  const post = req.body.post;
+  function sanitize(string){return string.replace(/</g, "&lt");}
+  const name = sanitize(req.body.name);
+  const post = sanitize(req.body.post);
   posts.push({ name, post });
   res.redirect("/");
 });
