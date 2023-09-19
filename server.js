@@ -27,7 +27,7 @@ server.get("/", (req, res) => {
   `;
   res.send(html);
 });
-
+//hi
 server.post("/", express.urlencoded({ extended: false }), (req, res) => {
   const name = req.body.name;
   const post = req.body.post;
