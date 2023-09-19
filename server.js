@@ -5,7 +5,7 @@ const server = express();
 
 const cheeses = [];
 
-server.get("/cheese", (req, res) => {
+server.get("/", (req, res) => {
   const list = cheeses.map((cheese) => {
     return `<li>${cheese.name} | ${cheese.rating} stars</li>`;
   });
@@ -28,11 +28,11 @@ server.get("/cheese", (req, res) => {
   res.send(html);
 });
 
-server.post("/cheese", express.urlencoded({ extended: false }), (req, res) => {
+server.post("/", express.urlencoded({ extended: false }), (req, res) => {
   const name = req.body.name;
   const rating = req.body.rating;
   cheeses.push({ name, rating });
-  res.redirect("/cheese");
+  res.redirect("/");
 });
 
 module.exports = server;
