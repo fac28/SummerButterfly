@@ -3,23 +3,23 @@ const express = require("express");
 const server = express();
 
 
-const cheeses = [];
+const posts = [];
 
 server.get("/", (req, res) => {
-  const list = cheeses.map((cheese) => {
-    return `<li>${cheese.name} | ${cheese.rating} stars</li>`;
+  const list = posts.map((posts) => {
+    return `<li>${posts.name} | ${posts.post} </li>`;
   });
   const html = `
     <form method="POST">
       <p>
-        <label for="name">Cheese name</label>
+        <label for="name">Username</label>
         <input name="name">
       </p>
       <p>
-        <label for="rating">Cheese rating</label>
-        <input name="rating" type="range" min="0" max="5" step="0.5">
+        <label for="post">Post</label>
+        <textarea name="post"  rows = '5' cols = '33'></textarea>
       </p>
-      <button>Rate cheese</button>
+      <button>Post</button>
     </form>
     <ul>
       ${list.join("")}
@@ -30,8 +30,8 @@ server.get("/", (req, res) => {
 
 server.post("/", express.urlencoded({ extended: false }), (req, res) => {
   const name = req.body.name;
-  const rating = req.body.rating;
-  cheeses.push({ name, rating });
+  const post = req.body.post;
+  posts.push({ name, post });
   res.redirect("/");
 });
 
