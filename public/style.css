@@ -3,28 +3,72 @@ body {
   margin: 0 auto;
   background-image: url(summer-background.png);
 }
+
+* {
+  border-radius: 5px;
+}
+
+input {
+  border: solid 0.2px;
+}
+
 h1 {
   font-family: "Pacifico", cursive;
   font-size: 3rem;
   color: rgb(239, 160, 13);
 }
+
 header {
   text-align: center;
 }
+
 label {
   display: block;
 }
-form,
+
+form {
+  margin: 1em;
+  display: inline-block;
+}
+
+#section-form {
+  display: inline-block;
+}
+
 #section-posts {
   margin: 1em;
+}
+
+.the-post-div {
+  margin-bottom: 15px;
+  justify-items: center;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
-  margin-bottom: 1em;
   border: solid 0.2px;
   background-color: antiquewhite;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 5px 10px;
+  border: solid 0.2px;
+  background-color: antiquewhite;
+}
+
+span {
+  padding: 5px 10px;
+  border: solid 0.2px;
+  font-weight: bold;
+  background-color: antiquewhite;
+}
+
+p {
+  padding-left: 10px
 }
