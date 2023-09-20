@@ -14,20 +14,22 @@ const posts = [];
 
 server.get("/", (req, res) => {
   const list = posts.map((post) => {
-    return `<div>
+    return `<div class="the-post-div">
     <span>${post.name}</span>
     <li>
     <p>
     ${post.post} 
     </p>
-    <form action="/edit" method="post" class="edit-form">
-      <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
-      <button type="submit" class="edit-button">Edit</button>
-    </form>
-    <form action="/delete-selected" method="post" class="delete-selected-form">
-      <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
-      <button type="submit" class="delete-selected-button">Delete</button>
-    </form>
+    <div class="the-post__the-buttons">
+      <form action="/edit" method="post" class="edit-form">
+        <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
+        <button type="submit" class="edit-button">Edit</button>
+      </form>
+      <form action="/delete-selected" method="post" class="delete-selected-form">
+        <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
+        <button type="submit" class="delete-selected-button">Delete</button>
+      </form>
+    </div>
     </li>
     </div>`;
   });
@@ -61,10 +63,6 @@ server.get("/", (req, res) => {
               <textarea name="post"  rows = '5' cols = '33'></textarea>
             </p>
             <button>Post</button>
-            </form>
-
-            <form  method="POST"  action="/delete-last">
-              <button>Delete Last</button>
             </form>
 
           </section>  
@@ -112,10 +110,10 @@ server.post("/", express.urlencoded({ extended: false }), (req, res) => {
 //   }
 // });
 
-server.post("/delete-last", express.urlencoded({ extended: false }), (req, res) => {
-  posts.pop();
-  res.redirect("/");
-});
+// server.post("/delete-last", express.urlencoded({ extended: false }), (req, res) => {
+//   posts.pop();
+//   res.redirect("/");
+// });
 
 server.post("/delete-selected", express.urlencoded({ extended: false }), (req, res) => {
   const postIndex = parseInt(req.body.postIndex, 10); // Parse the index as an integer

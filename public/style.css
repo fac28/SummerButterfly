@@ -39,8 +39,8 @@ form {
   margin: 1em;
 }
 
-div {
-  margin-bottom: 2em;
+.the-post-div {
+  margin-bottom: 15px;
   justify-items: center;
 }
 
@@ -52,6 +52,8 @@ ul {
 li {
   border: solid 0.2px;
   background-color: antiquewhite;
+  display: flex;
+  justify-content: space-between;
 }
 
 button {
