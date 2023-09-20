@@ -1,3 +1,4 @@
+/* Base styles */
 body {
   height: 100vh;
   margin: 0 auto;
@@ -6,10 +7,6 @@ body {
 
 * {
   border-radius: 5px;
-}
-
-input {
-  border: solid 0.2px;
 }
 
 h1 {
@@ -22,19 +19,27 @@ header {
   text-align: center;
 }
 
-label {
-  display: block;
-}
-
-form {
-  margin: 1em;
-  display: inline-block;
+input,
+textarea {
+  border: solid 0.2px;
+  background-color: rgba(240, 240, 240, 1);
 }
 
 button {
   cursor: pointer;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  background-color: antiquewhite;
+}
+
+/* Form Block */
 .section-input-form {
   display: inline-block;
   margin: 20px;
@@ -56,6 +61,17 @@ button {
   margin-bottom: 10px;
 }
 
+label {
+  display: block;
+}
+
+form {
+  margin: 1em;
+  display: inline-block;
+}
+
+
+/* Posts Block */
 .section-posts {
   margin: 1em;
   max-width: 600px;
@@ -102,17 +118,7 @@ p {
   }
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 10px;
-  text-align: center;
-  width: 100%;
-  background-color: antiquewhite;
-}
-
-/* buttons section */
+/* Buttons Block */
 .delete-selected-button,
 .edit-button,
 .input_form__post-button,
@@ -125,10 +131,6 @@ footer {
 .input_form__post-button,
 .show-posts-only-button {
   background-color: rgba(240, 240, 240, 1);
-
   margin: 1em;
   border-radius: 5px;
 }
-
-/* .section-input-form button.input_form__post-button,
-.section-input-form button.show-posts-only-button {} */
