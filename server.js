@@ -23,9 +23,9 @@ server.get("/", (req, res) => {
       <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
       <button type="submit" class="edit-button">Edit</button>
     </form>
-    <form action="/delete" method="post" class="delete-form">
+    <form action="/delete-selected" method="post" class="delete-selected-form">
       <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
-      <button type="submit" class="delete-button">Delete</button>
+      <button type="submit" class="delete-selected-button">Delete</button>
     </form>
     <span>${post.name}</span>
     </div>`;
@@ -62,7 +62,7 @@ server.get("/", (req, res) => {
             <button>Post</button>
             </form>
 
-            <form  method="POST"  action="/del">
+            <form  method="POST"  action="/delete-last">
               <button>Delete Last</button>
             </form>
 
@@ -111,12 +111,12 @@ server.post("/", express.urlencoded({ extended: false }), (req, res) => {
 //   }
 // });
 
-server.post("/del", express.urlencoded({ extended: false }), (req, res) => {
+server.post("/delete-last", express.urlencoded({ extended: false }), (req, res) => {
   posts.pop();
   res.redirect("/");
 });
 
-server.post("/delete", express.urlencoded({ extended: false }), (req, res) => {
+server.post("/delete-selected", express.urlencoded({ extended: false }), (req, res) => {
   const postIndex = parseInt(req.body.postIndex, 10); // Parse the index as an integer
   if (!isNaN(postIndex) && postIndex >= 0 && postIndex < posts.length) {
     // Check if the index is valid
