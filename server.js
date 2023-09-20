@@ -14,11 +14,12 @@ const posts = [];
 
 server.get("/", (req, res) => {
   const list = posts.map((post) => {
-    return `<div><li>
+    return `<div>
+    <span>${post.name}</span>
+    <li>
     <p>
     ${post.post} 
     </p>
-    </li>
     <form action="/edit" method="post" class="edit-form">
       <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
       <button type="submit" class="edit-button">Edit</button>
@@ -27,7 +28,7 @@ server.get("/", (req, res) => {
       <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
       <button type="submit" class="delete-selected-button">Delete</button>
     </form>
-    <span>${post.name}</span>
+    </li>
     </div>`;
   });
 
