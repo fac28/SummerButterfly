@@ -43,7 +43,7 @@ server.get("/", (req, res) => {
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@300&family=Montserrat&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
-<link rel="icon" href="public/favicon.png" type="image/x-icon">    
+<link rel="icon" type="image/png" href="public/favicon.png">
   </head>
 
       <body>
