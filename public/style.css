@@ -31,12 +31,16 @@ form {
   display: inline-block;
 }
 
-#section-form {
+.section-input-form {
   display: inline-block;
+  margin: 20px;
+  background-color: rgba(250, 235, 215, 0.47);
+  border-radius: 20px;
 }
 
-#section-posts {
+.section-posts {
   margin: 1em;
+  max-width: 600px;
 }
 
 .the-post-div {

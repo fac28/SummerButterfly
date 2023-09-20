@@ -53,7 +53,7 @@ server.get("/", (req, res) => {
         </header>
 
         <main>
-          <section id="section-input-form">
+          <section class="section-input-form">
             <form method="POST">
             <p>
               <label for="name">Username</label>
