@@ -14,8 +14,14 @@ function sanitize(string) {
 const posts = [];
 
 server.get("/", (req, res) => {
+
   const list = posts.map((post) => {
-    return getListTemplate(posts, post);
+    //validation must happen here with
+    //post.name
+    //post.post
+    if (post.name.length != 0 && post.post.length != 0) {
+      return getListTemplate(posts, post);
+    }
   });
 
   const html = layout(htmlNormal(list));
@@ -36,7 +42,9 @@ server.post("/", express.urlencoded({ extended: false }), (req, res) => {
 
 server.get("/posts", (req, res) => {
   const list = posts.map((post) => {
-    return getListTemplate(posts, post);
+    if (post.name.length != 0 && post.post.length != 0) {
+      return getListTemplate(posts, post);
+    }
   });
 
   const html = layout(htmlPosts(list));

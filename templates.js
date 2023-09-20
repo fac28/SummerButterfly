@@ -18,7 +18,7 @@ ${post.post}
 </li>
 </div>`}
 
-function layout(content) {
+function layout(htmlContent) {
     return /*html*/ `
     <!doctype html>
     <head>
@@ -37,7 +37,7 @@ function layout(content) {
     </header>
 
     <main>
-        ${content}
+        ${htmlContent}
     </main>
 
     <footer>
@@ -86,10 +86,5 @@ function htmlPosts(list) {
     ${list.join("")}
   </ul>
 </section> `}
-
-// templates = {
-//     layoutNormal: layout(htmlNormal(list)),
-//     layoutPosts: layout(htmlPosts(list))
-// }
 
 module.exports = { getListTemplate, layout, htmlNormal, htmlPosts }
