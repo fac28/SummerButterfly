@@ -121,7 +121,9 @@ server.get("/posts", (req, res) => {
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@300&family=Montserrat&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
-        </head>
+<link rel="icon" href="public/flavicon.png" type="image/x-icon">
+        
+</head>
 
       <body>
 
@@ -145,7 +147,7 @@ server.get("/posts", (req, res) => {
         </main>
 
         <footer>
-
+          <a href="https://www.flaticon.com/free-icons/easter" title="easter icons">Easter icons created by amoghdesign - Flaticon</a>
         </footer>
       </body>
     </html>
