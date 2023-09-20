@@ -15,4 +15,5 @@ User Story:
 
 
 Our user Zoe D. hates how all the other blogging sites don't remind her of her favorite season. She wants a website that is fun and summer themed. She wants to see her posts and posts from her friends displayed in a fun summery fashion. Sometimes she wants to post but sometimes she wants to just take in the posts so her ideal website would have separate pages for posting and page viewing. Sometimes she slips up and sends a post that does not have summer vibes. She wants to be able to correct her mistake and take the post off the website. Sometimes her ex Joe G. L. makes annoying posts so if she can delete those too that's even better.
+
 :hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus:
