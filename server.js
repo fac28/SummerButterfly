@@ -66,12 +66,13 @@ server.get("/", (req, res) => {
             <button class="input_form__post-button">Post</button>
             </form>
 
-            <form action="/posts" method="get" >
-              <button class="show-posts-only-button" type="submit" >Show Posts Only</button>
-            </form>
           </section>  
           
           <section class="section-posts">
+          <form action="/posts" method="get" >
+            <button class="show-posts-only-button" type="submit" >Show Posts Only</button>
+          </form>
+
             <ul>
               ${list.join("")}
             </ul>

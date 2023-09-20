@@ -31,11 +31,29 @@ form {
   display: inline-block;
 }
 
+button {
+  cursor: pointer;
+}
+
 .section-input-form {
   display: inline-block;
   margin: 20px;
   background-color: rgba(250, 235, 215, 0.47);
   border-radius: 20px;
+}
+
+.section-input-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.section-input-form input,
+.section-input-form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .section-posts {
@@ -63,19 +81,6 @@ li {
   justify-content: space-between;
 }
 
-.delete-selected-button,
-.edit-button {
-  padding: 5px 10px;
-  border: solid 0.2px;
-  background-color: antiquewhite;
-}
-
-.input_form__post-button,
-.show-posts-only-button {
-  border: solid 0.2px;
-  margin: 1em
-}
-
 span {
   padding: 5px 10px;
   border: solid 0.2px;
@@ -84,7 +89,17 @@ span {
 }
 
 p {
-  padding-left: 10px
+  padding-left: 10px;
+  padding-right: 10px;
+  word-wrap: break-word;
+  max-width: 50vw;
+  text-wrap: wrap;
+}
+
+@media (min-width: 600px) {
+  .section-posts p {
+    max-width: 450px;
+  }
 }
 
 footer {
@@ -96,3 +111,24 @@ footer {
   width: 100%;
   background-color: antiquewhite;
 }
+
+/* buttons section */
+.delete-selected-button,
+.edit-button,
+.input_form__post-button,
+.show-posts-only-button {
+  padding: 5px 10px;
+  border: solid 0.2px;
+  background-color: antiquewhite;
+}
+
+.input_form__post-button,
+.show-posts-only-button {
+  background-color: rgba(240, 240, 240, 1);
+
+  margin: 1em;
+  border-radius: 5px;
+}
+
+/* .section-input-form button.input_form__post-button,
+.section-input-form button.show-posts-only-button {} */
