@@ -121,16 +121,17 @@ p {
 
 /* Buttons Block */
 .delete-selected-button,
-.edit-button,
-.input_form__post-button,
-.show-posts-only-button {
+.edit-button {
   padding: 5px 10px;
   border: solid 0.2px;
   background-color: antiquewhite;
 }
 
 .input_form__post-button,
-.show-posts-only-button {
+.show-posts-only-button,
+.make-new-posts-button {
+  padding: 5px 10px;
+  border: solid 0.2px;
   background-color: rgba(240, 240, 240, 1);
   margin: 1em;
   border-radius: 5px;
