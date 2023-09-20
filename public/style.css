@@ -49,8 +49,9 @@ footer {
 
 .section-input-form label {
   display: block;
-  font-weight: bold;
   margin-bottom: 5px;
+  font-family: "Pacifico", cursive;
+  color: rgb(239, 160, 13);
 }
 
 .section-input-form input,
