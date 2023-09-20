@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - delete-on-each
 jobs:
   deploy:
     name: Deploy app

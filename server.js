@@ -8,18 +8,29 @@ server.use(staticHandler);
 function sanitize(string) {
   return string.replace(/</g, "&lt;");
 }
+
+let postIdCounter = 1;
 const posts = [];
 
 server.get("/", (req, res) => {
-  const list = posts.map((posts) => {
-    return `<div><li>
+  const list = posts.map((post) => {
+    return `<div class="the-post-div">
+    <span>${post.name}</span>
+    <li>
     <p>
-    ${posts.post} 
+    ${post.post} 
     </p>
+    <div class="the-post__the-buttons">
+      <form action="/edit" method="post" class="edit-form">
+        <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
+        <button type="submit" class="edit-button">Edit</button>
+      </form>
+      <form action="/delete-selected" method="post" class="delete-selected-form">
+        <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
+        <button type="submit" class="delete-selected-button">Delete</button>
+      </form>
+    </div>
     </li>
-    <button>Edit</button>
-    <button>Delete</button>
-    <span>${posts.name}</span>
     </div>`;
   });
 
@@ -53,6 +64,7 @@ server.get("/", (req, res) => {
             </p>
             <button>Post</button>
             </form>
+
           </section>  
           
           <form action="/posts" method="get" >
@@ -161,5 +173,19 @@ server.get("/posts", (req, res) => {
 //   }
 // });
 
+// server.post("/delete-last", express.urlencoded({ extended: false }), (req, res) => {
+//   posts.pop();
+//   res.redirect("/");
+// });
+
+server.post("/delete-selected", express.urlencoded({ extended: false }), (req, res) => {
+  const postIndex = parseInt(req.body.postIndex, 10); // Parse the index as an integer
+  if (!isNaN(postIndex) && postIndex >= 0 && postIndex < posts.length) {
+    // Check if the index is valid
+    posts.splice(postIndex, 1); // Remove the post at the specified index
+  }
+  res.redirect("/");
+});
+//hi from Shaughn
 module.exports = server;
 // hi from Shaughn
