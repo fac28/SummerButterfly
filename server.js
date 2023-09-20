@@ -83,10 +83,7 @@ server.post("/", express.urlencoded({ extended: false }), (req, res) => {
 });
 
 
-// server.post("/redirePosts", express.urlencoded({ extended: false }), (req, res) => {
- 
-//   res.redirect("/posts");
-// });
+
 
 
 
