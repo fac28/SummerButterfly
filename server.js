@@ -54,8 +54,12 @@ server.get("/", (req, res) => {
             <button>Post</button>
             </form>
           </section>  
-
-          <section id="section-posts">
+          
+          <form action="/posts" method="get" >
+            
+            <button type="submit" >Show Posts Only</button>
+          
+          </form>
             <ul>
               ${list.join("")}
             </ul>
@@ -76,6 +80,68 @@ server.post("/", express.urlencoded({ extended: false }), (req, res) => {
   const post = sanitize(req.body.post);
   posts.push({ name, post });
   res.redirect("/");
+});
+
+
+// server.post("/redirePosts", express.urlencoded({ extended: false }), (req, res) => {
+ 
+//   res.redirect("/posts");
+// });
+
+
+
+server.get("/posts", (req, res) => {
+  const list = posts.map((posts) => {
+    return `<div><li>
+    <p>
+    ${posts.post} 
+    </p>
+    </li>
+    <button>Edit</button>
+    <button>Delete</button>
+    <span>${posts.name}</span>
+    </div>`;
+  });
+
+  const html = `
+    <!doctype html>
+      <head>
+        <title>SummerButterfly</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@300&family=Montserrat&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+        </head>
+
+      <body>
+
+        <header>
+          <h1>Summer Butterfly</h1>
+        </header>
+
+        <main>
+          
+
+          <section id="section-posts">
+            <ul>
+              ${list.join("")}
+            </ul>
+          </section>  
+          <form action="/" method="get" >
+            
+            <button type="submit" >Make New Post</button>
+          
+          </form>
+        </main>
+
+        <footer>
+
+        </footer>
+      </body>
+    </html>
+    `;
+  res.send(html);
 });
 
 // The following code is being worked on for Validaltion:
