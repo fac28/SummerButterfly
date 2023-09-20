@@ -23,6 +23,7 @@ test("posts route returns posts page", async () => {
   assert.match(body, /Make New Post/);
 });
 
+// NOT WORKING YET
 test("home route responds to POST requests", async () => {
   const app = server.listen(8080);
   const response = await fetch("http://localhost:8080", {
