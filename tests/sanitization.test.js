@@ -12,6 +12,6 @@ test("POST with script tag is correctly sanitized", async () => {
   assert.match(
     body,
     /&lt;script>alert\('uh oh'\)&lt;\/script>/i,
-    `Expected <script> to have '<' replaced with '&lt;', but received:\n${body}`
+    `Expected <script> to have '<' replaced with '&lt;', but received:\n${body}`,
   );
 });

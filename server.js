@@ -1,5 +1,10 @@
 const express = require("express");
-const { getListTemplate, layout, htmlNormal, htmlPosts } = require("./templates.js");
+const {
+  getListTemplate,
+  layout,
+  htmlNormal,
+  htmlPosts,
+} = require("./templates.js");
 
 const server = express();
 
@@ -10,11 +15,9 @@ function sanitize(string) {
   return string.replace(/</g, "&lt;");
 }
 
-
 const posts = [];
 
 server.get("/", (req, res) => {
-
   const list = posts.map((post) => {
     //validation must happen here with
     //post.name
@@ -81,7 +84,7 @@ server.post(
       posts.splice(postIndex, 1); // Remove the post at the specified index
     }
     res.redirect("/");
-  }
+  },
 );
 //hi from Shaughn
 module.exports = server;
