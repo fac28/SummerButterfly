@@ -1,5 +1,10 @@
 const express = require("express");
-const { getListTemplate, layout, htmlNormal, htmlPosts } = require("./templates.js");
+const {
+  getListTemplate,
+  layout,
+  htmlNormal,
+  htmlPosts,
+} = require("./templates.js");
 
 const server = express();
 
@@ -10,11 +15,9 @@ function sanitize(string) {
   return string.replace(/</g, "&lt;");
 }
 
-
 const posts = [];
 
 server.get("/", (req, res) => {
-
   const list = posts.map((post) => {
     //validation must happen here with
     //post.name
@@ -34,11 +37,6 @@ server.post("/", express.urlencoded({ extended: false }), (req, res) => {
   posts.push({ name, post });
   res.redirect("/");
 });
-
-
-
-
-
 
 server.get("/posts", (req, res) => {
   const list = posts.map((post) => {
@@ -76,14 +74,18 @@ server.get("/posts", (req, res) => {
 //   res.redirect("/");
 // });
 
-server.post("/delete-selected", express.urlencoded({ extended: false }), (req, res) => {
-  const postIndex = parseInt(req.body.postIndex, 10); // Parse the index as an integer
-  if (!isNaN(postIndex) && postIndex >= 0 && postIndex < posts.length) {
-    // Check if the index is valid
-    posts.splice(postIndex, 1); // Remove the post at the specified index
-  }
-  res.redirect("/");
-});
+server.post(
+  "/delete-selected",
+  express.urlencoded({ extended: false }),
+  (req, res) => {
+    const postIndex = parseInt(req.body.postIndex, 10); // Parse the index as an integer
+    if (!isNaN(postIndex) && postIndex >= 0 && postIndex < posts.length) {
+      // Check if the index is valid
+      posts.splice(postIndex, 1); // Remove the post at the specified index
+    }
+    res.redirect("/");
+  },
+);
 //hi from Shaughn
 module.exports = server;
 // hi from Shaughn

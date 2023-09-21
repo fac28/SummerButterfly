@@ -9,7 +9,9 @@
   "description": "A microblogging site for the summer (ONLY!!)",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  },
   "author": "",
   "license": "ISC"
 }

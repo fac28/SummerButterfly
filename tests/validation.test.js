@@ -13,6 +13,6 @@ test("POST without username re-renders page with error", async () => {
   assert.match(
     body,
     /please enter your Username/i,
-    `Expected HTML to include "please enter your Username", but received:\n${body}`
+    `Expected HTML to include "please enter your Username", but received:\n${body}`,
   );
 });

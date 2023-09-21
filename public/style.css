@@ -76,7 +76,6 @@ form {
   display: inline-block;
 }
 
-
 /* Posts Block */
 .section-posts {
   margin: 1em;
@@ -93,7 +92,7 @@ form {
 ul {
   list-style-type: none;
   padding: 0;
-  padding-bottom: 100px
+  padding-bottom: 100px;
 }
 
 li {
