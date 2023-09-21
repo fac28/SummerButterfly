@@ -1,5 +1,5 @@
 function getListTemplate(posts, post) {
-    return `<div class="the-post-div">
+  return `<div class="the-post-div">
 <span>${post.name}</span>
 <li>
 <p>
@@ -16,10 +16,11 @@ ${post.post}
   </form>
 </div>
 </li>
-</div>`}
+</div>`;
+}
 
 function layout(htmlContent) {
-    return /*html*/ `
+  return /*html*/ `
     <!doctype html>
     <head>
         <title>SummerButterfly</title>
@@ -28,7 +29,7 @@ function layout(htmlContent) {
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@300&family=Montserrat&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/png" href="public/favicon.png">
+        <link rel="icon" type="image/png" href="/favicon.png">
     </head>
   
     <body>
@@ -49,7 +50,7 @@ function layout(htmlContent) {
 }
 
 function htmlNormal(list) {
-    return `
+  return `
       <section class="section-input-form">
         <form method="POST">
         <p>
@@ -74,10 +75,11 @@ function htmlNormal(list) {
           ${list.join("")}
         </ul>
       </section>  
-`}
+`;
+}
 
 function htmlPosts(list) {
-    return ` <section class="section-posts">
+  return ` <section class="section-posts">
 <form action="/" method="get" >
   <button class="make-new-posts-button" type="submit" >Make New Posts</button>
 </form>
@@ -85,6 +87,7 @@ function htmlPosts(list) {
   <ul>
     ${list.join("")}
   </ul>
-</section> `}
+</section> `;
+}
 
-module.exports = { getListTemplate, layout, htmlNormal, htmlPosts }
+module.exports = { getListTemplate, layout, htmlNormal, htmlPosts };
