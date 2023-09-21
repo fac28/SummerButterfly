@@ -6,10 +6,7 @@ function getListTemplate(posts, post) {
 ${post.post} 
 </p>
 <div class="the-post__the-buttons">
-  <form action="/edit" method="post" class="edit-form">
-    <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
-    <button type="submit" class="edit-button">Edit</button>
-  </form>
+  
   <form action="/delete-selected" method="post" class="delete-selected-form">
     <input type="hidden" name="postIndex" value="${posts.indexOf(post)}">
     <button type="submit" class="delete-selected-button">Delete</button>

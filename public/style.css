@@ -3,6 +3,7 @@ body {
   height: 100vh;
   margin: 0 auto;
   background-image: url(summer-background.png);
+  background-size: 100%;
 }
 
 * {
@@ -121,11 +122,14 @@ p {
   .section-posts p {
     max-width: 450px;
   }
+  main {
+    max-width: 600px;
+    margin: auto;
+  }
 }
 
 /* Buttons Block */
-.delete-selected-button,
-.edit-button {
+.delete-selected-button {
   padding: 5px 10px;
   border: solid 0.2px;
   background-color: antiquewhite;
