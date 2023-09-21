@@ -2,6 +2,39 @@
 
 :hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus::hibiscus:
 
+Start up guide
+
+1. Clone the repository to your local machine:
+
+   ```shell
+   git clone https://github.com/fac28/SummerButterfly.git
+
+   ```
+
+2. Navigate to the project directory:
+
+   ```shell
+   cd SummerButterfly
+
+   ```
+
+3. Install project dependencies using npm:
+
+   ```shell
+   npm install
+   ```
+
+
+4. Start the Node.js server:
+
+   ```shell
+   node index.js
+
+   ```
+
+5. Open your web browser and visit http://localhost:8080
+
+
 User Guide:
 
 
