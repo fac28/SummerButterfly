@@ -129,8 +129,7 @@ p {
 }
 
 /* Buttons Block */
-.delete-selected-button,
-.edit-button {
+.delete-selected-button {
   padding: 5px 10px;
   border: solid 0.2px;
   background-color: antiquewhite;
