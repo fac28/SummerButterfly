@@ -3,7 +3,7 @@ body {
   height: 100vh;
   margin: 0 auto;
   background-image: url(summer-background.png);
-  background-size: cover;
+  background-size: 100%;
 }
 
 * {
@@ -121,6 +121,10 @@ p {
 @media (min-width: 600px) {
   .section-posts p {
     max-width: 450px;
+  }
+  main {
+    max-width: 600px;
+    margin: auto;
   }
 }
 
