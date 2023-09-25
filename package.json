@@ -3,7 +3,8 @@
     "express": "^4.18.2"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node ./tests/servers.test.js"
   },
   "name": "summerbutterfly",
   "description": "A microblogging site for the summer (ONLY!!)",
